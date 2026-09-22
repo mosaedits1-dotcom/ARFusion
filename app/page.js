@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Hero from '@/components/Hero';
 import ToolCard from '@/components/ToolCard';
+import EgyptPaymentNotice from '@/components/EgyptPaymentNotice';
 import { tools } from '@/data/tools';
 
 export default function HomePage() {
@@ -17,6 +18,8 @@ export default function HomePage() {
               Each tool is delivered as a .fuse file with native inspector parameters, interactive viewer gizmos, and built-in presets.
             </p>
           </div>
+
+          <EgyptPaymentNotice variant="banner" />
 
           <div style={{
             display: 'grid',

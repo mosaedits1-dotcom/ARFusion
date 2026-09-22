@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { tools, getToolBySlug, getAllSlugs } from '@/data/tools';
 import FeatureList from '@/components/FeatureList';
+import EgyptPaymentNotice from '@/components/EgyptPaymentNotice';
 import styles from './page.module.css';
 
 export async function generateStaticParams() {
@@ -39,7 +40,7 @@ export default async function ToolDetailPage({ params }) {
             <div className={styles.imageCard}>
               {tool.discount && (
                 <div className={styles.saleOverlayBadge}>
-                  SPECIAL OFFER · {tool.discount}
+                  SPECIAL OFFER • {tool.discount}
                 </div>
               )}
               <img src={tool.previewImage} alt={tool.name} className={styles.image} />
@@ -94,6 +95,8 @@ export default async function ToolDetailPage({ params }) {
                 </svg>
               </a>
             </div>
+
+            <EgyptPaymentNotice variant="detail" />
           </div>
         </div>
 

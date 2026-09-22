@@ -1,4 +1,5 @@
 import ToolCard from '@/components/ToolCard';
+import EgyptPaymentNotice from '@/components/EgyptPaymentNotice';
 import { tools } from '@/data/tools';
 
 export const metadata = {
@@ -17,6 +18,8 @@ export default function ToolsPage() {
             GPU-accelerated tools for 3D card layouts, proximity effectors, and organic tapered vector lines.
           </p>
         </div>
+
+        <EgyptPaymentNotice variant="banner" />
 
         <div style={{
           display: 'grid',

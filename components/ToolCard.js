@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import EgyptPaymentNotice from '@/components/EgyptPaymentNotice';
 import styles from './ToolCard.module.css';
 
 export default function ToolCard({ tool }) {
@@ -43,9 +44,11 @@ export default function ToolCard({ tool }) {
             View Specs
           </Link>
           <a href={tool.whopUrl} target='_blank' rel='noopener noreferrer' className='btn btn-primary btn-sm'>
-            {tool.originalPrice ? `Get · ${tool.price}` : 'Get on Whop'}
+            {tool.originalPrice ? `Get at ${tool.price}` : 'Get on Whop'}
           </a>
         </div>
+
+        <EgyptPaymentNotice variant="card" />
       </div>
     </div>
   );
