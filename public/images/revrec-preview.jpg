@@ -1,0 +1,21 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#161616"/>
+        <stop offset="100%" stop-color="#0d0d0d"/>
+      </linearGradient>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    <rect width="800" height="500" fill="url(#bg)"/>
+    <!-- Chamfered / rounded shape -->
+    <rect x="220" y="100" width="360" height="300" rx="40" ry="40" fill="none" stroke="#009dff" stroke-width="4" filter="url(#glow)"/>
+    <rect x="250" y="130" width="300" height="240" rx="20" ry="20" fill="none" stroke="#333" stroke-width="2"/>
+    <text x="400" y="240" font-family="system-ui, sans-serif" font-size="44" font-weight="900" fill="#e3e3e3" text-anchor="middle" letter-spacing="4">REVRECTANGLE</text>
+    <text x="400" y="290" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#00e5ff" text-anchor="middle" filter="url(#glow)">ADVANCED SQUIRCLE &amp; SHAPE ENGINE</text>
+  </svg>

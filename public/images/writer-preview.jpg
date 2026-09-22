@@ -1,0 +1,29 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#161616"/>
+        <stop offset="100%" stop-color="#0d0d0d"/>
+      </linearGradient>
+      <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#009dff"/>
+        <stop offset="100%" stop-color="#00e5ff"/>
+      </linearGradient>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    <rect width="800" height="500" fill="url(#bg)"/>
+    <circle cx="400" cy="250" r="180" fill="#009dff" opacity="0.05" filter="url(#glow)"/>
+    <!-- Grid -->
+    <path d="M 100 0 L 100 500 M 200 0 L 200 500 M 300 0 L 300 500 M 400 0 L 400 500 M 500 0 L 500 500 M 600 0 L 600 500 M 700 0 L 700 500" stroke="#222" stroke-width="1"/>
+    <path d="M 0 100 L 800 100 M 0 200 L 800 200 M 0 300 L 800 300 M 0 400 L 800 400" stroke="#222" stroke-width="1"/>
+    <!-- Arabic Calligraphy / Text Reveal Lines -->
+    <text x="400" y="220" font-family="system-ui, sans-serif" font-size="44" font-weight="900" fill="#e3e3e3" text-anchor="middle" letter-spacing="4">AR_WRITER PRO</text>
+    <text x="400" y="270" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="url(#accent)" text-anchor="middle" filter="url(#glow)">KINETIC TYPOGRAPHY &amp; ARABIC ENGINE</text>
+    <rect x="250" y="320" width="300" height="4" rx="2" fill="url(#accent)"/>
+    <rect x="555" y="316" width="3" height="12" fill="#00e5ff"/>
+  </svg>

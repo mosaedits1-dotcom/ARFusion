@@ -1,0 +1,23 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#161616"/>
+        <stop offset="100%" stop-color="#0d0d0d"/>
+      </linearGradient>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+        <feMerge>
+          <feMergeNode in="coloredBlur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+    </defs>
+    <rect width="800" height="500" fill="url(#bg)"/>
+    <!-- Shards -->
+    <polygon points="350,140 450,110 400,200" fill="#009dff" opacity="0.4" stroke="#00e5ff" stroke-width="2"/>
+    <polygon points="280,220 380,210 320,320" fill="#009dff" opacity="0.2" stroke="#009dff" stroke-width="2"/>
+    <polygon points="420,220 520,180 480,300" fill="#00e5ff" opacity="0.3" stroke="#00e5ff" stroke-width="2"/>
+    <polygon points="360,310 460,320 400,410" fill="#009dff" opacity="0.4" stroke="#009dff" stroke-width="2"/>
+    <text x="400" y="240" font-family="system-ui, sans-serif" font-size="44" font-weight="900" fill="#e3e3e3" text-anchor="middle" letter-spacing="4">AH_SHATTER</text>
+    <text x="400" y="290" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#00e5ff" text-anchor="middle" filter="url(#glow)">PROCEDURAL 2D / 3D DESTRUCTION FX</text>
+  </svg>
