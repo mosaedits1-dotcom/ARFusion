@@ -38,11 +38,15 @@ export default async function ToolDetailPage({ params }) {
         <div className={styles.grid}>
           <div className={styles.mediaCol}>
             <div className={styles.imageCard}>
-              {tool.discount && (
-                <div className={styles.saleOverlayBadge}>
-                  SPECIAL OFFER • {tool.discount}
+              {tool.comingSoon ? (
+                <div className={styles.comingSoonOverlayBadge}>
+                  COMING SOON
                 </div>
-              )}
+              ) : tool.discount ? (
+                <div className={styles.saleOverlayBadge}>
+                  SPECIAL OFFER · {tool.discount}
+                </div>
+              ) : null}
               <img src={tool.previewImage} alt={tool.name} className={styles.image} />
             </div>
           </div>
@@ -51,9 +55,11 @@ export default async function ToolDetailPage({ params }) {
             <div className={styles.metaRow}>
               <span className='badge'>{tool.category}</span>
               <span className={styles.version}>{tool.version}</span>
-              {tool.discount && (
+              {tool.comingSoon ? (
+                <span className={styles.comingSoonPill}>IN DEVELOPMENT</span>
+              ) : tool.discount ? (
                 <span className={styles.saleHeaderPill}>LIMITED DEAL</span>
-              )}
+              ) : null}
             </div>
 
             <h1 className={styles.title}>{tool.name}</h1>
@@ -62,16 +68,8 @@ export default async function ToolDetailPage({ params }) {
 
             <div className={styles.specs}>
               <div className={styles.spec}>
-                <span className={styles.specLabel}>Price</span>
-                {tool.originalPrice ? (
-                  <div className={styles.priceRow}>
-                    <span className={styles.originalPrice}>{tool.originalPrice}</span>
-                    <span className={styles.specValuePrice}>{tool.price}</span>
-                    <span className={styles.discountBadgeDetail}>{tool.discount}</span>
-                  </div>
-                ) : (
-                  <span className={styles.specValue}>{tool.price}</span>
-                )}
+                <span className={styles.specLabel}>Status</span>
+                <span className={styles.specValue}>{tool.comingSoon ? 'Coming Soon' : tool.price}</span>
               </div>
               <div className={styles.divider} />
               <div className={styles.spec}>
@@ -86,17 +84,36 @@ export default async function ToolDetailPage({ params }) {
             </div>
 
             <div className={styles.actions}>
-              <a href={tool.whopUrl} target='_blank' rel='noopener noreferrer' className='btn btn-primary btn-lg' style={{ width: '100%', justifyContent: 'center', gap: '0.6rem' }}>
-                <span>Get Instant Access {tool.originalPrice ? `(${tool.price})` : 'on Whop'}</span>
-                <svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round'>
-                  <path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6' />
-                  <polyline points='15 3 21 3 21 9' />
-                  <line x1='10' y1='14' x2='21' y2='3' />
-                </svg>
-              </a>
+              {tool.comingSoon ? (
+                <button
+                  type="button"
+                  disabled
+                  className='btn btn-secondary btn-lg'
+                  style={{
+                    width: '100%',
+                    justifyContent: 'center',
+                    gap: '0.6rem',
+                    opacity: 0.7,
+                    cursor: 'not-allowed',
+                    background: 'var(--bg-surface)',
+                    borderColor: 'var(--border)'
+                  }}
+                >
+                  <span>Coming Soon — In Active Development</span>
+                </button>
+              ) : (
+                <a href={tool.whopUrl} target='_blank' rel='noopener noreferrer' className='btn btn-primary btn-lg' style={{ width: '100%', justifyContent: 'center', gap: '0.6rem' }}>
+                  <span>Get Instant Access {tool.originalPrice ? `(${tool.price})` : 'on Whop'}</span>
+                  <svg width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round'>
+                    <path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6' />
+                    <polyline points='12 3 21 3 21 9' />
+                    <line x1='10' y1='14' x2='21' y2='3' />
+                  </svg>
+                </a>
+              )}
             </div>
 
-            <EgyptPaymentNotice variant="detail" />
+            {!tool.comingSoon && <EgyptPaymentNotice variant="detail" />}
           </div>
         </div>
 

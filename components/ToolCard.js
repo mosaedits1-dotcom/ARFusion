@@ -6,9 +6,11 @@ export default function ToolCard({ tool }) {
   return (
     <div className={styles.card}>
       <Link href={'/tools/' + tool.slug} className={styles.mediaWrap}>
-        {tool.discount && (
+        {tool.comingSoon ? (
+          <span className={styles.cardComingSoonBadge}>Coming Soon</span>
+        ) : tool.discount ? (
           <span className={styles.cardSaleBadge}>{tool.discount}</span>
-        )}
+        ) : null}
         <img src={tool.previewImage} alt={tool.name} className={styles.image} />
       </Link>
 
@@ -26,7 +28,11 @@ export default function ToolCard({ tool }) {
         <p className={styles.desc}>{tool.description}</p>
 
         <div className={styles.priceRow}>
-          {tool.originalPrice ? (
+          {tool.comingSoon ? (
+            <div className={styles.priceContainer}>
+              <span className={styles.comingSoonText}>Coming Soon</span>
+            </div>
+          ) : tool.originalPrice ? (
             <div className={styles.priceContainer}>
               <span className={styles.originalPrice}>{tool.originalPrice}</span>
               <span className={styles.currentPrice}>{tool.price}</span>
@@ -43,12 +49,18 @@ export default function ToolCard({ tool }) {
           <Link href={'/tools/' + tool.slug} className='btn btn-secondary btn-sm'>
             View Specs
           </Link>
-          <a href={tool.whopUrl} target='_blank' rel='noopener noreferrer' className='btn btn-primary btn-sm'>
-            {tool.originalPrice ? `Get at ${tool.price}` : 'Get on Whop'}
-          </a>
+          {tool.comingSoon ? (
+            <span className='btn btn-secondary btn-sm' style={{ opacity: 0.65, cursor: 'not-allowed', pointerEvents: 'none' }}>
+              Coming Soon
+            </span>
+          ) : (
+            <a href={tool.whopUrl} target='_blank' rel='noopener noreferrer' className='btn btn-primary btn-sm'>
+              {tool.originalPrice ? `Get at ${tool.price}` : 'Get on Whop'}
+            </a>
+          )}
         </div>
 
-        <EgyptPaymentNotice variant="card" />
+        {!tool.comingSoon && <EgyptPaymentNotice variant="card" />}
       </div>
     </div>
   );

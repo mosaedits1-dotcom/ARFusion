@@ -14,8 +14,9 @@ export const tools = [
       "Unlimited inputs via dynamic MultiMerge architecture",
       "Interactive on-screen 3D rotation and pivot controls"
     ],
-    "price": "Available on Whop",
-    "whopUrl": "https://whop.com",
+    "price": "Coming Soon",
+    "comingSoon": true,
+    "whopUrl": "#",
     "previewImage": "/images/carousel3d-preview.jpg",
     "compatibility": "Fusion",
     "category": "3D & Motion",
