@@ -36,8 +36,8 @@ export const tools = [
       "Independent scale, rotation, opacity, and blur response curves",
       "Supports up to 16 input layers with auto-expanding node inputs"
     ],
-    "price": "$10",
-    "originalPrice": "$15",
+    "price": "$20",
+    "originalPrice": "$30",
     "discount": "33% OFF",
     "onSale": true,
     "whopUrl": "https://whop.com/youtube-8f73/arproximity/",
